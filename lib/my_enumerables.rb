@@ -1,12 +1,6 @@
 module Enumerable
   # Your code goes here
-  def my_each
-    return to_enum{:my_each} unless block.given?
 
-    for element in self do
-      yield element
-    end
-  end
 
 end
 
@@ -22,8 +16,7 @@ class Array
     for element in self do
       yield element
     end
+    self
   end
-  def 
-   
-  end
+
 end
