@@ -16,6 +16,13 @@ end
 # to this method
 class Array
   # Define my_each here
+  def my_each
+    return to_enum{:my_each} unless block.given?
+
+    for element in self do
+      yield element
+    end
+  end
   def 
    
   end
