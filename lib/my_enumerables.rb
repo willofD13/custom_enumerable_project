@@ -11,7 +11,7 @@ end
 class Array
   # Define my_each here
   def my_each
-    return to_enum{:my_each} unless block.given?
+    return to_enum{:my_each} unless block_given?
 
     for element in self do
       yield element
