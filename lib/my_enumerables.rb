@@ -60,6 +60,28 @@ module Enumerable
     number
   end
 
+  def my_map 
+    arr = []
+    return to_enum{:my_map} unless block_given?
+    
+    my_each { |i| arr << yield(i)}
+    arr 
+  end
+
+
+  
+  def my_inject(initial_value = 0)
+      if block_given?
+        sum = initial_value
+        i = 0 
+        while i < self.length 
+          sum = yield(sum,self[i])
+          i += 1 
+        end  
+      end
+      sum
+  end
+    
 end
 
 
