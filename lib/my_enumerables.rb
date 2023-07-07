@@ -12,6 +12,20 @@ module Enumerable
    self
   end
 
+  def my_select(&block)
+    return to_enum{:my_select} unless block_given? 
+    
+    arr = []
+    i = 0
+    while i < self.length do 
+      yield(self[i])
+      
+      arr.push(self[i]) if yield(self[i]) == true
+      i += 1
+    end
+    return arr
+  end
+
 end
 
 
