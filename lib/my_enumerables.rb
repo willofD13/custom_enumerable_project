@@ -16,13 +16,7 @@ module Enumerable
     return to_enum{:my_select} unless block_given? 
     
     arr = []
-    i = 0
-    while i < self.length do 
-      yield(self[i])
-      
-      arr.push(self[i]) if yield(self[i])
-      i += 1
-    end
+    my_each { |i| arr << i if yield(i)}
     return arr
   end
 
