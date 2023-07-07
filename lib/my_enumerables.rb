@@ -22,8 +22,11 @@ module Enumerable
 
   def my_all?
     result = true
-    
-    my_each { |i| result = false if  yield(i) == false}
+    if block_given?
+      my_each { |i| result = false if  yield(i) == false}
+    else 
+      my_each { |i| result = false if i == false}
+    end 
     result
   end
 
