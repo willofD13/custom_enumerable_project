@@ -1,5 +1,10 @@
 module Enumerable
   # Your code goes here
+  def my_all(pattern = nil)
+  
+
+  end
+
 
 
 end
