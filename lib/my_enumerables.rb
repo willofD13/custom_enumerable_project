@@ -30,6 +30,27 @@ module Enumerable
     result
   end
 
+  def my_any?
+    result = false
+    if block_given?
+      my_each { |i| result = true if  yield(i) == true}
+    else 
+      my_each { |i| result = true if i == true}
+    end 
+    result
+  end
+
+  def my_none?
+    result = true
+    if block_given?
+      my_each { |i| result = false if  yield(i) == true}
+    else 
+      my_each { |i| result = false if i == true}
+    end 
+    result
+  end
+  
+
 end
 
 
