@@ -20,7 +20,7 @@ module Enumerable
     while i < self.length do 
       yield(self[i])
       
-      arr.push(self[i]) if yield(self[i]) == true
+      arr.push(self[i]) if yield(self[i])
       i += 1
     end
     return arr
