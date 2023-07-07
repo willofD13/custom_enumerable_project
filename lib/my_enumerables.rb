@@ -33,9 +33,9 @@ module Enumerable
   def my_any?
     result = false
     if block_given?
-      my_each { |i| result = true if  yield(i) == true}
+      my_each { |i| result = true if  yield(i)}
     else 
-      my_each { |i| result = true if i == true}
+      my_each { |i| result = true if i}
     end 
     result
   end
@@ -43,13 +43,22 @@ module Enumerable
   def my_none?
     result = true
     if block_given?
-      my_each { |i| result = false if  yield(i) == true}
+      my_each { |i| result = false if  yield(i)}
     else 
-      my_each { |i| result = false if i == true}
+      my_each { |i| result = false if i}
     end 
     result
   end
-  
+
+  def my_count
+    number = 0
+    if block_given?
+      my_each { |i| number += 1 if yield(i)}
+    else 
+      my_each { |i| number += 1 if i}
+    end
+    number
+  end
 
 end
 
